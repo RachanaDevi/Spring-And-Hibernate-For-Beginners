@@ -9,10 +9,12 @@ public class HelloSpringApp {
         var context = new ClassPathXmlApplicationContext("file:src/applicationContext.xml");
 
         //retrieve bean from spring container
-        Coach theCoach = context.getBean("myCoach", Coach.class);
+        Coach trackCoach = context.getBean("trackCoach", Coach.class);
+        Coach danceCoach = context.getBean("danceCoach", Coach.class);
 
         // call methods on the bean
-        System.out.println(theCoach.getDailyWorkout());
+        System.out.println(trackCoach.getDailyWorkout());
+        System.out.println(danceCoach.getDailyWorkout());
 
         // close the context
         context.close();

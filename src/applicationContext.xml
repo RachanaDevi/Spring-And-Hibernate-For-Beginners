@@ -5,8 +5,9 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- Define your beans here -->
-    <bean id="myCoach" class="com.udemy.spring.coach.TrackCoach">
-        
+    <bean id="trackCoach" class="com.udemy.spring.coach.TrackCoach">
+    </bean>
+    <bean id="danceCoach" class="com.udemy.spring.coach.DanceCoach">
     </bean>
 
 </beans>
