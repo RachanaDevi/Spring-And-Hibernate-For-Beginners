@@ -1,4 +1,4 @@
-package com.udemy.spring.fortuneservice;
+package com.udemy.spring.fortuneService;
 
 public class HappyFortuneService implements FortuneService {
 

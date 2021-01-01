@@ -5,9 +5,13 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- Define your beans here -->
-    <bean id="trackCoach" class="com.udemy.spring.coach.TrackCoach">
+    <!-- Define the dependency -->
+    <bean id="myFortune" class="com.udemy.spring.fortuneService.HappyFortuneService"
+    >
     </bean>
-    <bean id="danceCoach" class="com.udemy.spring.coach.DanceCoach">
+    <bean id="trackCoach" class="com.udemy.spring.coach.TrackCoach">
+        <!-- Constructor injection-->
+        <constructor-arg ref="myFortune"/>
     </bean>
 
 </beans>

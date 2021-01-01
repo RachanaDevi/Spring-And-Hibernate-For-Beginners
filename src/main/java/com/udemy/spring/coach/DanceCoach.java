@@ -1,6 +1,15 @@
 package com.udemy.spring.coach;
 
+import com.udemy.spring.fortuneService.FortuneService;
+
 public class DanceCoach implements Coach {
+
+    FortuneService fortuneService;
+
+    public DanceCoach(FortuneService fortuneService) {
+        this.fortuneService = fortuneService;
+    }
+
     @Override
     public String getDailyWorkout() {
         return "Break-dance for 30 mins";
@@ -8,6 +17,6 @@ public class DanceCoach implements Coach {
 
     @Override
     public String getDailyFortune() {
-        return null;
+        return fortuneService.getFortune();
     }
 }
