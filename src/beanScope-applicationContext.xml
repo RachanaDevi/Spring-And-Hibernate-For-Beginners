@@ -7,7 +7,8 @@
     <bean id="myFortune" class="com.udemy.spring.fortuneService.HappyFortuneService"
     >
     </bean>
-    <bean id="trackCoach" class="com.udemy.spring.coach.TrackCoach">
+    <bean id="trackCoach" class="com.udemy.spring.coach.TrackCoach"
+          scope="prototype">
         <!-- Constructor injection-->
         <constructor-arg ref="myFortune"/>
     </bean>
