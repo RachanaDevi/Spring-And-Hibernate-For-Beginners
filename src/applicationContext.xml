@@ -2,10 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans.xsd">
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- Define your beans here -->
-    <!-- Define the dependency -->
+    <!--  This was used instead of <context:property-placeholder location="classpath:sport.properties"/>  -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:sport.properties</value>
+        </property>
+    </bean>
+
     <bean id="myFortune" class="com.udemy.spring.fortuneService.HappyFortuneService"
     >
     </bean>
@@ -19,13 +24,8 @@
         <property name="fortuneService" ref="myFortune"/>
 
         <!-- Injecting literal values    -->
-        <property name="emailAddress" value="email@email.com"/>
-        <property name="team" value="Sun-risers Hyderabad"/>
+        <property name="emailAddress" value="${foo.email}"/>
+        <property name="team" value="${foo.team}"/>
     </bean>
 
 </beans>
-
-
-
-
-
