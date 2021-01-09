@@ -4,12 +4,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- Bean custom processor to handle calling destroy methods on prototype scoped beans -->
+    <bean id="customProcessor"
+          class="com.udemy.spring.customBeans.MyCustomBeanProcessor">
+    </bean>
+    
     <bean id="myFortune" class="com.udemy.spring.fortuneService.HappyFortuneService"
     >
     </bean>
     <bean id="trackCoach" class="com.udemy.spring.coach.TrackCoach"
-          init-method="doMyStartupStuff"
-          destroy-method="doMyCleanupStuff">
+          scope="prototype"
+          init-method="doMyStartupStuff">
         <!-- Constructor injection-->
         <constructor-arg ref="myFortune"/>
     </bean>

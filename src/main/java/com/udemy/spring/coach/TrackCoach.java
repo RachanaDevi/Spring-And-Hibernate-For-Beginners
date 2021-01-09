@@ -1,8 +1,9 @@
 package com.udemy.spring.coach;
 
 import com.udemy.spring.fortuneService.FortuneService;
+import org.springframework.beans.factory.DisposableBean;
 
-public class TrackCoach implements Coach {
+public class TrackCoach implements Coach, DisposableBean {
 
     FortuneService fortuneService;
 
@@ -29,4 +30,11 @@ public class TrackCoach implements Coach {
     public void doMyCleanupStuff() {
         System.out.println("TrackCoach: inside method doMyCleanUpStuff");
     }
+
+    // add a destroy method (this has to be added for prototype, not singleton
+    @Override
+    public void destroy() {
+        System.out.println("TrackCoach: inside method doMyCleanupStuff");
+    }
+
 }
